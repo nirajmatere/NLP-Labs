@@ -5,6 +5,8 @@ from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize, sent_tokenize
 import spacy
 
+# Made By Niraj
+
 nlp = spacy.load("en_core_web_sm")
 
 def category(tags):
