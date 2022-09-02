@@ -71,7 +71,7 @@ for name in possibilites:
     col = []
     for token in doc:
         # print("Root : "+ token.lemma_)
-        col.append(token.lemma_)
+        col.append(token)
 
         tag = token.tag_
         # print("Category : "+ category(tag)) 
