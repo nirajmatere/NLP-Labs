@@ -90,19 +90,40 @@ def Take_input():
             if(base == None):
                 base = token._.inflect("NNP")
 
+        print(base)
         possibilites.append(base)
 
         gerund = token._.inflect("VBG")
+        print(gerund)
         possibilites.append(gerund)
 
         ThirdPersonSingular = token._.inflect("VBZ")
+        print(ThirdPersonSingular)
         possibilites.append(ThirdPersonSingular)
 
         past_tense = token._.inflect("VBD")
+        print(past_tense)
         possibilites.append(past_tense)
 
         past_participle = token._.inflect("VBN")
+        print(past_participle)
         possibilites.append(past_participle)
+
+        adverb = token._.inflect("RB")
+        print(adverb)
+        possibilites.append(adverb)
+        
+        adjective = token._.inflect("RBS")
+        print(adjective)
+        possibilites.append(adjective) 
+
+        adverbP = token._.inflect("RBR")
+        print(adverbP)
+        possibilites.append(adverbP)
+
+        affix = token._.inflect("AFX")
+        print(affix)
+        possibilites.append(affix)
 
         if(token.tag_ != "VB" and token.tag_ != "VBZ" and token.tag_ != "VBD" and token.tag_ != "VBN" and token.tag_ != "VBG"):
             pluralNoun = token._.inflect("NNS")
@@ -110,7 +131,7 @@ def Take_input():
                 pluralNoun = token._.inflect("NNPS")      
             possibilites.append(pluralNoun)
 
-    rootWord = str(possibilites[0])
+    rootWord = word
     # print(rootWord)
     s = {rootWord}
     # s.update(possibilites)
