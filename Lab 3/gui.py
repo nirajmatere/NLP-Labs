@@ -90,39 +90,55 @@ def Take_input():
             if(base == None):
                 base = token._.inflect("NNP")
 
-        print(base)
+        # print(base)
         possibilites.append(base)
 
         gerund = token._.inflect("VBG")
-        print(gerund)
+        # print(gerund)
         possibilites.append(gerund)
 
         ThirdPersonSingular = token._.inflect("VBZ")
-        print(ThirdPersonSingular)
+        # print(ThirdPersonSingular)
         possibilites.append(ThirdPersonSingular)
 
         past_tense = token._.inflect("VBD")
-        print(past_tense)
+        # print(past_tense)
         possibilites.append(past_tense)
 
         past_participle = token._.inflect("VBN")
-        print(past_participle)
+        # print(past_participle)
         possibilites.append(past_participle)
 
         adverb = token._.inflect("RB")
-        print(adverb)
+        # print("adverb : " + str(adverb))
         possibilites.append(adverb)
         
-        adjective = token._.inflect("RBS")
-        print(adjective)
-        possibilites.append(adjective) 
+        adverbS = token._.inflect("RBS")
+        # print(adverbS)
+        possibilites.append(adverbS) 
 
         adverbP = token._.inflect("RBR")
-        print(adverbP)
+        # print(adverbP)
         possibilites.append(adverbP)
 
+        adjective = token._.inflect("JJ")
+        # print(adjective)
+        possibilites.append(adjective)
+        
+        adjectiveS = token._.inflect("JJS")
+        # print(adjectiveS)
+        possibilites.append(adverbS) 
+
+        adjectiveP = token._.inflect("JJS")
+        # print(adjectiveP)
+        possibilites.append(adjectiveP)
+
+        POSW = token._.inflect("POS")
+        # print(POSW)
+        possibilites.append(POSW)
+
         affix = token._.inflect("AFX")
-        print(affix)
+        # print(affix)
         possibilites.append(affix)
 
         if(token.tag_ != "VB" and token.tag_ != "VBZ" and token.tag_ != "VBD" and token.tag_ != "VBN" and token.tag_ != "VBG"):
