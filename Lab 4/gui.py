@@ -97,7 +97,7 @@ def Take_input():
             dct2[" ".join(i)]=probability_table[k][m]
             AnswerBlock.insert(END, "P('{}')\t=  " .format(' '.join(i)),probability_table  [k][m])
             AnswerBlock.insert(END, probability_table  [k][m])
-            print("P('{}')\t=  ".format(' '.join(i)),probability_table  [k][m])
+            # print("P('{}')\t=  ".format(' '.join(i)),probability_table  [k][m])
             s*=probability_table[k][m]
             AnswerBlock.insert(END, '\n')
         except:
@@ -108,34 +108,34 @@ def Take_input():
 
     AnswerBlock.insert(END, '\n')
     AnswerBlock.insert(END, "Calculate Probability of the sentence : \n")      
-    print("\n"+'\033[1m'+ "Calculate Probability of the sentence"+'\033[0m')
+    # print("\n"+'\033[1m'+ "Calculate Probability of the sentence"+'\033[0m')
     AnswerBlock.insert(END, '\n')
     AnswerBlock.insert(END, f"P('{text}') \n=")      
-    print(f"P('{text}') \n= ",end="")
+    # print(f"P('{text}') \n= ",end="")
     x=dct2.popitem()
     for i in dct2:
         AnswerBlock.insert(END, f" P('{i}') *" )
         # AnswerBlock.insert(END, '\n')
-        print(f"P('{i}')", end=" * ")
+        # print(f"P('{i}')", end=" * ")
     AnswerBlock.insert(END, f"P('{x[0]}')\n= ")
     # AnswerBlock.insert(END, '\n')
-    print(f"P('{x[0]}')\n= ", end='')
+    # print(f"P('{x[0]}')\n= ", end='')
 
     for i in dct2:
         AnswerBlock.insert(END, dct2[i])
         AnswerBlock.insert(END, ' * ')
         # AnswerBlock.insert(END, '\n')
-        print(dct2[i], end=" * ")
+        # print(dct2[i], end=" * ")
     AnswerBlock.insert(END, x[1], " = ")
     AnswerBlock.insert(END, "\n= ")
     AnswerBlock.insert(END, s)
-    print(x[1],"\n=",s)
+    # print(x[1],"\n=",s)
 
     AnswerBlock.insert(END, '\n')
     AnswerBlock.insert(END, '\n')
     AnswerBlock.insert(END, f"Probability('{text}') = "+"{:.5f}".format(s))
     # AnswerBlock.insert(END, '\n')
-    print("\n"+'\033[1m'+f"Probability('{text}') = "+"{:.5f}".format(s))
+    # print("\n"+'\033[1m'+f"Probability('{text}') = "+"{:.5f}".format(s))
     AnswerBlock.insert(END, '\n------------------------------------------------------\n')
 
 
