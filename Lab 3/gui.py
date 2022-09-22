@@ -9,7 +9,7 @@ import pyinflect
 nlp = spacy.load("en_core_web_sm")
 
 top = tk.Tk()
-top.title("NLP Lab 2")
+top.title("NLP Lab 3")
 top.geometry("700x650")
 
 possibilites = list()
