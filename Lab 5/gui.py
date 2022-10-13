@@ -8,7 +8,7 @@ import pandas as pd
 
 top = tk.Tk()
 top.title("NLP Lab 4")
-top.geometry("700x650")
+top.geometry("1000x1000")
 
 unknown_prob = 0.0000000000001
 bigram_cnt = {}
@@ -72,10 +72,10 @@ def print_matrix(dict0):
     df = pd.DataFrame(zip(*data)).set_index([1,0])[2].unstack()
     
     df=df.fillna(0)
-    print(df)
+    AnswerBlock.insert(END, df)
+    # print(df)
 
 AnswerBlock = Text(top, height = 37, width = 115)
-AnswerBlock.insert(END, '\t\t\t\t\t--------- Smoothing Factor = 0.1 ---------\t\n\n')
 AnswerBlock.pack()
 
 lines = []
@@ -84,6 +84,7 @@ with open('corpus138.txt') as f:
 
 tagged_words = []
 all_tags = []
+AnswerBlock.insert(END, "\n************************Corpus*************************\n")
 for sent in lines:  
     word,tag=sent.split()
     if tag is None or tag in ['NIL']:
@@ -91,18 +92,35 @@ for sent in lines:
     all_tags.append(tag)
     word = clean(word)
     tagged_words.append((word,tag))
+    if(word == 'eos'):
+        AnswerBlock.insert(END,". ")
+        continue
+    AnswerBlock.insert(END, " ")
+    AnswerBlock.insert(END, word)
 
+AnswerBlock.insert(END, "\n\n")
+AnswerBlock.insert(END, "\n************************Tags*************************\n")
+for word in tagged_words:
+    AnswerBlock.insert(END, " ")
+    AnswerBlock.insert(END, word[0]) 
+    AnswerBlock.insert(END, " (")
+    AnswerBlock.insert(END, word[1])
+    AnswerBlock.insert(END, ")")
+    if(word[1] == 'eos'):
+        AnswerBlock.insert(END, "\n")
+
+AnswerBlock.insert(END, "\n")
 tag_word_counts(tagged_words)
 bigram_cnt = bigram_counts(all_tags)
 unigram_cnt = unigram_counts(all_tags)
 AnswerBlock.insert(END, "\n************************State Transition Probability Matrix*************************\n")
 trans_mat=transition_probabilty(all_tags)
 print_matrix(trans_mat)
+
+AnswerBlock.insert(END, "\n")
 AnswerBlock.insert(END, "\n************************Emission Probability Matrix*********************************\n")
 emi_mat=emmission_probabilty(tagged_words)
 print_matrix(emi_mat)
-
-
-
+AnswerBlock.insert(END, "\n\n")
 
 top.mainloop()

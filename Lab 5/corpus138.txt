@@ -6,7 +6,7 @@ I   PRP
 like    VBP
 to  TO
 read    VB
-books   NNS
+book   NNS
 eos eos
 Book    VB
 the DT
@@ -15,6 +15,7 @@ eos   eos
 Park    VB
 the DT
 car NN
+eos eos
 I   PRP
 am  DT
 going   VB
