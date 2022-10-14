@@ -78,14 +78,12 @@ def print_matrix(dict0):
 AnswerBlock = Text(top, height = 37, width = 115)
 AnswerBlock.pack()
 
-lines = []
-with open('corpus138.txt') as f:
-    lines = f.readlines()
+lines = open('corpus138.txt').readlines()
 
 tagged_words = []
 all_tags = []
 AnswerBlock.insert(END, "\n************************Corpus*************************\n")
-for sent in lines:  
+for sent in lines:
     word,tag=sent.split()
     if tag is None or tag in ['NIL']:
         continue
@@ -111,8 +109,13 @@ for word in tagged_words:
 
 AnswerBlock.insert(END, "\n")
 tag_word_counts(tagged_words)
+# print(tag_word_counts[0])
+# print(tag_word_counts[1])
+# print(tag_word_counts)
 bigram_cnt = bigram_counts(all_tags)
+print(bigram_cnt)
 unigram_cnt = unigram_counts(all_tags)
+print(unigram_cnt)
 AnswerBlock.insert(END, "\n************************State Transition Probability Matrix*************************\n")
 trans_mat=transition_probabilty(all_tags)
 print_matrix(trans_mat)
